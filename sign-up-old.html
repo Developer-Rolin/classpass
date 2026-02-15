@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Waitlist - ClassPass Pickleball Classic</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body class="signup-page">
+
+    <header id="header">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#top" class="mobile-logo">ClassPass</a>
+                <a href="#top" class="desktop-logo">ClassPass</a>
+            </div>
+
+            <nav class="nav-container">
+                <!-- Links de Navegação (Desktop e Mobile) -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#">Find classes & appointments</a></li>
+                    <li><a href="#">Plans</a></li>
+                    <li><a href="#">How credits work</a></li>
+                    <li><a href="#">List my business</a></li>
+                    <li><a href="#">Corporate wellness</a></li>
+                    <li><a href="#" class="login-link">Log in</a></li>
+                </ul>
+
+                <!-- CTA Button (Desktop e Mobile) -->
+                <a href="sign-up.html" class="cta-button">Sign up now</a>
+
+                <!-- Hamburguer (Apenas Mobile) -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+            </nav>
+        </div>
+    </header>
+
+    <main class="signup-main">
+
+        <h1>Let's do this</h1>
+        <p class="subtitle">Thank you for your interest in the 2025 ClassPass Pickleball Classic. Submit
+            your details below to join the waitlist.</p>
+
+        <div class="container signup-container">
+            <div class="form-content">
+
+                <!-- Coluna Esquerda: Formulário -->
+                <div class="form-section">
+
+                    <form id="signupForm" class="signup-form">
+                        <div class="form-block">
+                            <h2>Contact information</h2>
+                            <p class="form-description">The information below will be used to contact you with event
+                                updates and to let you know your status on the waitlist.</p>
+
+                            <div class="form-row">
+                                <div class="form-group float-label">
+                                    <label for="firstName">First name*</label>
+                                    <input type="text" id="firstName" name="firstName" class="input" required>
+                                </div>
+                                <div class="form-group float-label">
+                                    <label for="lastName">Last name*</label>
+                                    <input type="text" id="lastName" name="lastName" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group float-label">
+                                <label for="phone">Phone number*</label>
+                                <input type="tel" id="phone" name="phone" class="input" required>
+                            </div>
+
+                            <div class="form-group float-label">
+                                <label for="email">Email address*</label>
+                                <input type="email" id="email" name="email" class="input" required>
+                            </div>
+
+                            <div class="form-group float-label">
+                                <label for="experience">Pickleball experience level*</label>
+                                <select id="experience" name="experience" class="input" required>
+                                    <option value="">Please select</option>
+                                    <option value="novice">Novice</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="marketing" name="marketing" required>
+                                    <span class="checkbox-text">I agree to receive marketing and other communications
+                                        from ClassPass and its group companies.*</span>
+                                </label>
+                            </div>
+
+                            <p class="legal-text">
+                                You can unsubscribe from these communications at any time. For more information, please
+                                review our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                            </p>
+
+                            <button type="submit" class="submit-btn">Join waitlist</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Coluna Direita: Imagem -->
+            <div class="image-section">
+                <img src="assets/images/signup.png" alt="Pickleball player" class="signup-image">
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+    
+        // Validação do Formulário
+        const form = document.getElementById('signupForm');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Pegar valores do formulário
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                experience: document.getElementById('experience').value,
+                marketing: document.getElementById('marketing').checked
+            };
+
+            // Validações básicas
+            if (!formData.marketing) {
+                alert('Please agree to receive communications to continue.');
+                return;
+            }
+
+            console.log('Form submitted:', formData);
+
+            // Aqui você pode adicionar a lógica de envio para um backend
+            alert('Thank you for joining the waitlist!');
+
+            // Opcional: redirecionar para página de confirmação
+            // window.location.href = 'thank-you.html';
+        });
+    </script>
+
+    <script src="js/header.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+/* =========================
+   BUTTONS
+========================= */
+/* Estilo Base para Botões */
+
+.cta-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  padding: 6px 12px;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  background: #0055ff;
+  color: #fff;
+  border-radius: 100px;
+}
+
+.cta-button:hover {
+  background-color: #008AFF;
+}
+
+.cta-button:focus-visible {
+  outline: 2px solid #008aff;
+  background: #008aff;
+}
+
+/* Botão Secundário (Learn More) */
+.btn-outline {
+  background: transparent;
+  color: #0055ff;
+  border: 1px solid #0055ff;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-light-blue);
+}
+
+.btn-outline:focus-visible {
+  background-color: transparent;
+  outline: 2px solid #008aff;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ClassPass Pickleball Classic</title>
+    <link rel="icon" href="/assets/images/logos/mobile_logo.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body class="signup-page">
+
+    <header id="header">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#top" class="mobile-logo">ClassPass</a>
+                <a href="#top" class="desktop-logo">ClassPass</a>
+            </div>
+
+            <nav class="nav-container">
+                <!-- Links de Navegação (Desktop e Mobile) -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#">Find classes & appointments</a></li>
+                    <li><a href="#">Plans</a></li>
+                    <li><a href="#">How credits work</a></li>
+                    <li><a href="#">List my business</a></li>
+                    <li><a href="#">Corporate wellness</a></li>
+                    <li><a href="#" class="login-link">Log in</a></li>
+                </ul>
+
+                <!-- CTA Button (Desktop e Mobile) -->
+                <a href="sign-up.html" class="cta-button">Sign up now</a>
+
+                <!-- Hamburguer (Apenas Mobile) -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+            </nav>
+        </div>
+    </header>
+
+    <main class="signup-main">
+
+        <h1>Let's do this</h1>
+        <p class="subtitle">Thank you for your interest in the 2025 ClassPass Pickleball Classic. Submit
+            your details below to join the waitlist.</p>
+
+        <div class="container signup-container">
+            <form id="signupForm" class="signup-form">
+                <div class="form-block">
+                    <h2>Contact information</h2>
+                    <p class="form-description">The information below will be used to contact you with event
+                        updates and to let you know your status on the waitlist.</p>
+
+                    <div class="form-row">
+                        <div class="form-group float-label">
+                            <label for="firstName">First name*</label>
+                            <input type="text" id="firstName" name="firstName" class="input" required>
+                        </div>
+                        <div class="form-group float-label">
+                            <label for="lastName">Last name*</label>
+                            <input type="text" id="lastName" name="lastName" class="input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group float-label">
+                        <label for="phone">Phone number*</label>
+                        <input type="tel" id="phone" name="phone" class="input" required>
+                    </div>
+
+                    <div class="form-group float-label">
+                        <label for="email">Email address*</label>
+                        <input type="email" id="email" name="email" class="input" required>
+                    </div>
+
+<div class="form-group float-label custom-select-container" id="experienceSelectContainer">
+    <label for="experience" class="select-label">Pickleball experience level*</label>
+    
+    <div class="custom-select" id="customSelect">
+        <span class="selected-text">Please select</span>
+        <span class="arrow-icon">
+            <svg width="16" height="16" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1.5L6 6.5L11 1.5" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+    </div>
+
+    <div class="dropdown-options" id="dropdownOptions">
+        <div class="option" data-value="novice">Novice</div>
+        <div class="option" data-value="beginner">Beginner</div>
+        <div class="option" data-value="intermediate">Intermediate</div>
+        <div class="option" data-value="advanced">Advanced</div>
+    </div>
+
+    <!-- O input escondido que o seu JS vai ler no submit -->
+    <input type="hidden" id="experience" name="experience" required>
+</div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="marketing" name="marketing" required>
+                            <span class="checkbox-text">I agree to receive marketing and other communications
+                                from ClassPass and its group companies.*</span>
+                        </label>
+                    </div>
+
+                    <p class="legal-text">
+                        You can unsubscribe from these communications at any time. For more information, please
+                        review our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                    </p>
+
+                    <button type="submit" class="submit-btn cta-button">Join waitlist</button>
+                </div>
+            </form>
+
+            <!-- Coluna Direita: Imagem -->
+            <div class="image-section">
+                <img src="assets/images/signup.png" alt="Pickleball player" class="signup-image">
+            </div>
+
+        </div>
+    </main>
+
+   
+
+    <script src="js/header.js"></script>
+      <script src="js/form.js"></script>
+</body>
+
+</html>

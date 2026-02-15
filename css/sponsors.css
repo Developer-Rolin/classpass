@@ -1,0 +1,167 @@
+
+
+/* =========================
+   SPONSORS SECTION
+========================= */
+
+.sponsors {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.sponsors-header h2 {
+    font-family: Circuit;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 0px;
+}
+
+.sponsors-header p {
+    font-family: TT Norms;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+.sponsor-selector {
+  display: inline-flex;
+  background-color: #f8f9fa;
+  padding: 6px;
+  border-radius: 50px;
+  margin-top: 48px;
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0px 2px 10px 0px #00000014;
+  position: relative;
+  width: 100%;
+  max-width: 523px;
+  justify-content: space-between;
+}
+
+.selector-btn {
+  font-family: TT Norms;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  padding: 12px 22px;
+  min-height: 48px;
+  border: none;
+  background: transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.selector-btn.active {
+  background-color: #0056ff;
+  color: #ffffff;
+}
+
+.selector-btn.active:focus-visible {
+  background: #008AFF;
+  outline: 2px solid #008aff;
+}
+
+.selector-btn:focus-visible {
+  background-color: #008aff20;
+  outline: none;
+}
+
+.sponsor-tab {
+  display: none;
+  gap: 100px;
+  align-items: center;
+  margin-top: 60px;
+  animation: fadeIn 0.5s ease;
+}
+
+.sponsor-tab.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sponsor-tab .tab-text {
+  flex: 1;
+  text-align: left;
+  width: 100%;
+  max-width: 347px;
+}
+
+.sponsor-tab .tab-image {
+  flex: 1;
+  max-width: 793px;
+  max-height: 333px;
+}
+
+.tab-image img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+}
+
+.tab-text h3 {
+  letter-spacing: 0px;
+  font-family: Circuit;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.tab-text p {
+  font-family: "TT Norms";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  margin-top: 16px;
+}
+@media (max-width: 768px) {
+    .sponsors{
+        padding: 48px 0;
+    }
+    .sponsors .container{
+        padding: 0 20px;
+    }
+  
+    .sponsors-header h2{
+        text-align: left;
+        font-size: 28px;
+        line-height: 32px;
+    }
+    .sponsors-header p{
+        text-align: left;
+    }
+    .sponsor-selector{
+        margin-top: 32px;
+        flex-direction: column;
+        gap: 5px;
+        max-width: 353px;
+    }
+    .sponsor-tab{
+        flex-direction: column-reverse;
+        margin-top: 32px;
+        gap: 32px;
+    }
+    .sponsor-tab .tab-text{
+        max-width: 600px;
+    }
+    .tab-text h3{
+        font-size: 26px;
+    }
+   
+ }
