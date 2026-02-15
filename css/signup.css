@@ -83,7 +83,7 @@ header .container .nav-container ul a {
     font-family: 'TT Norms', sans-serif;
     font-size: 16px;
     line-height: 24px;
-    color: #666;
+    /* color: #666; */
     margin-bottom: 32px;
     text-align: left;
 }
@@ -129,11 +129,6 @@ header .container .nav-container ul a {
     color: #6A6A6A;
 }
 
-.form-group input:focus,
-.input:focus {
-    outline: 2px solid #0055FF;
-    border-color: #0055FF;
-}
 
 /* CUSTOM SELECT */
 /* Container do Select */
@@ -156,7 +151,7 @@ header .container .nav-container ul a {
 }
 
 .custom-select-container label {
-    top: 0px;
+    top: 0px !important;
 }
 
 /* Estado Aberto/Focado */
@@ -368,6 +363,8 @@ header .container .nav-container ul a {
     font-family: 'TT Norms', sans-serif;
     font-size: 12px;
     line-height: 20px;
+    font-weight: 400;
+    color: #000000;
 }
 
 /* =========================
@@ -386,6 +383,7 @@ header .container .nav-container ul a {
 .legal-text a {
     color: #0055FF;
     text-decoration: underline;
+    font-weight: 500;
 }
 
 .legal-text a:hover {
@@ -498,6 +496,10 @@ header .container .nav-container ul a {
         justify-self: unset;
     }
 
+    .form-block h2,.form-description{
+        text-align: center;
+    }
+
     .form-row{
         grid-template-columns: 1fr;
         margin-bottom: 20px;
@@ -527,6 +529,8 @@ header .container .nav-container ul a {
     .signup-image-mobile {
         display: block;
     }
-
+.checkbox-label input[type="checkbox"]{
+    padding: 0px;
+}
 
 }
