@@ -33,9 +33,7 @@
 
 .logo-group img {
     height: 35px;
-    width: auto;
-    filter: grayscale(1) brightness(0.2);
-    opacity: 0.8;
+    width: auto;  
 }
 
 @keyframes scroll-animation {

@@ -80,7 +80,7 @@ body {
   font-family: var(--font-base);
   background-color: var(--color-background);
   color: var(--color-text);
-  line-height: 1.5;
+  padding-top: 62px;
 }
 
 a {

@@ -1,10 +1,14 @@
 header {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
     background-color: #ffffff;
+    width: 100%;
+    position: fixed;
+    height: 64px;
+    z-index: 99999;
+    top: 0;
 }
 
-header .container {
-    position: sticky;
+header .container {    
     top: 0;
     z-index: 1000;
     background-color: #ffffff;
@@ -83,10 +87,6 @@ header .container {
     transition: color 0.2s;
 }
 
-.nav-links a:hover {
-    color: #0055FF;
-}
-
 /* CTA Button */
 .nav-container .cta-button {
     padding: 6px 12px;
@@ -107,10 +107,7 @@ header .container {
 ========================= */
 
 @media (max-width: 768px) {
-    header {
-        position: relative;
-        z-index: 1001;
-    }
+  
 
     /* .main-header .logo a {
         text-indent: 200%;
