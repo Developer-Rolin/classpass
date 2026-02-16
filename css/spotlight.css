@@ -177,10 +177,10 @@ h2.spotlight-title {
 }
 
 /* Esconde pontos extras no desktop (itens 3 e 4) */
-.carousel-pagination button:nth-child(3),
+/* .carousel-pagination button:nth-child(3),
 .carousel-pagination button:nth-child(4) {
     display: none;
-}
+} */
 
 /* ============================================================
    RESPONSIVO (DESKTOP-FIRST)
