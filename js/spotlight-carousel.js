@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dot.addEventListener('click', () => {
             if (dot.classList.contains('current')) return;
 
-            if (window.innerWidth < 540) {
+            if (isSwipeEnabled()) {
                 goToIndex(index);
             } else {
                 const side = index === 0 ? 'left' : 'right';
@@ -72,14 +72,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================
-    // SWIPE MOBILE FLUIDO (OFFSET REAL)
+    // MOBILE + TABLET SWIPE
     // ==========================
     let startX = 0;
     let isSwiping = false;
     let currentOffset = 0;
 
+    function isSwipeEnabled() {
+        // Swipe habilitado se for touch device e tela menor que 900px
+        return 'ontouchstart' in window && window.innerWidth <= 900;
+    }
+
     spotlightTrack.addEventListener('touchstart', (e) => {
-        if (window.innerWidth >= 540) return;
+        if (!isSwipeEnabled()) return;
 
         startX = e.touches[0].clientX;
         isSwiping = true;
@@ -88,14 +93,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { passive: true });
 
     spotlightTrack.addEventListener('touchmove', (e) => {
-        if (!isSwiping || window.innerWidth >= 540) return;
+        if (!isSwiping || !isSwipeEnabled()) return;
 
         const moveX = e.touches[0].clientX - startX;
         spotlightTrack.style.transform = `translateX(${currentOffset + moveX}px)`;
     }, { passive: true });
 
     spotlightTrack.addEventListener('touchend', (e) => {
-        if (!isSwiping || window.innerWidth >= 540) return;
+        if (!isSwiping || !isSwipeEnabled()) return;
 
         isSwiping = false;
         const endX = e.changedTouches[0].clientX;
@@ -110,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==========================
     // RESET RESIZE
     // ==========================
-    const getSize = () => (window.innerWidth < 540 ? 'small' : 'big');
+    const getSize = () => (window.innerWidth <= 900 ? 'small' : 'big');
     let currentSize = getSize();
 
     window.addEventListener('resize', () => {
