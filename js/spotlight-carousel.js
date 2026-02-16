@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function fullNav(side, btn) {
-
         const scrollWidth = spotlightTrack.clientWidth;
         const containerWidth = spotlightTrack.parentElement.scrollWidth;
 
@@ -72,34 +71,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================
-    // SWIPE SOMENTE MOBILE (VERSÃO ESTÁVEL)
+    // SWIPE FLUIDO MOBILE
     // ==========================
     let startX = 0;
     let isSwiping = false;
+    let moveX = 0;
+
+    const getCardWidth = () => spotlightTrack.querySelector('.press-card').offsetWidth + 20; // 20 = gap
 
     spotlightTrack.addEventListener('touchstart', (e) => {
         if (window.innerWidth >= 540) return;
 
         startX = e.touches[0].clientX;
         isSwiping = true;
+        moveX = 0;
+        spotlightTrack.style.transition = 'none';
     }, { passive: true });
 
-    spotlightTrack.addEventListener('touchend', (e) => {
-        if (!isSwiping) return;
-        if (window.innerWidth >= 540) return;
+    spotlightTrack.addEventListener('touchmove', (e) => {
+        if (!isSwiping || window.innerWidth >= 540) return;
+
+        const currentX = e.touches[0].clientX;
+        moveX = currentX - startX;
+
+        const offset = -currentIndex * getCardWidth() + moveX;
+        spotlightTrack.style.transform = `translateX(${offset}px)`;
+    }, { passive: true });
+
+    spotlightTrack.addEventListener('touchend', () => {
+        if (!isSwiping || window.innerWidth >= 540) return;
 
         isSwiping = false;
 
-        const endX = e.changedTouches[0].clientX;
-        const diff = endX - startX;
-
-        if (diff < -50 && currentIndex < paginationButtons.length - 1) {
-            currentIndex++;
-        }
-
-        if (diff > 50 && currentIndex > 0) {
-            currentIndex--;
-        }
+        if (moveX < -50 && currentIndex < paginationButtons.length - 1) currentIndex++;
+        if (moveX > 50 && currentIndex > 0) currentIndex--;
 
         goToIndex(currentIndex);
     });
@@ -112,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('resize', () => {
         if (currentSize !== getSize()) {
-
             spotlightTrack.style.transition = 'none';
             spotlightTrack.style.transform = `translateX(0px)`;
 
