@@ -6,20 +6,21 @@ header {
     height: 64px;
     z-index: 99999;
     top: 0;
+    cursor: pointer;
 }
 
-header .container {    
+header .container {
     top: 0;
     z-index: 1000;
     background-color: #ffffff;
     /* border-bottom: 1px solid #e0e0e0; */
     height: 64px;
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
     /* box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08); */
-    max-width: 1240px;
+    /* max-width: 1240px; */
     margin: 0 auto;
 }
 
@@ -28,7 +29,7 @@ header .container {
     margin: 0 auto;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     gap: 32px;
     position: relative;
@@ -59,6 +60,7 @@ header .container {
     margin-left: 0px;
     background-image: url(../assets/images//logos/desktop_logo.svg);
     width: 124px;
+    height: 24px;
 }
 
 /* Links de Navegação - Desktop */
@@ -69,7 +71,6 @@ header .container {
     gap: 30px;
     margin: 0;
     padding: 0;
-    flex: 1;
 }
 
 .nav-links li {
@@ -217,7 +218,7 @@ header .container {
         cursor: pointer;
         /* padding: 8px; */
         position: relative;
-        width: 18px;
+        width: 17px;
         height: 36px;
         justify-content: center;
         align-items: center;

@@ -67,7 +67,7 @@ textarea {
 :root {
   --color-primary: #0055FF;
   --color-primary-dark: #0044cc;
-  --color-light-blue: #0055ff0d;
+  --color-light-blue: #E6F3FF;
   --color-text-gray: #666666;
   --font-base: "TT Norms", Arial, sans-serif;
 }
@@ -78,9 +78,9 @@ textarea {
 
 body {
   font-family: var(--font-base);
-  background-color: var(--color-background);
+  background-color: var(--color-light-blue);
   color: var(--color-text);
-  padding-top: 62px;
+  padding-top: 64px;
 }
 
 a {

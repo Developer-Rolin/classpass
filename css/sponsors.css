@@ -7,6 +7,7 @@
 .sponsors {
     padding: 100px 0;
     text-align: center;
+    background: #F7F7F7;
 }
 
 .sponsors-header h2 {
@@ -110,7 +111,7 @@
 
 .tab-image img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 16px;
   display: block;
 }
 
@@ -142,6 +143,7 @@
         text-align: left;
         font-size: 28px;
         line-height: 32px;
+        margin-bottom: 12px;
     }
     .sponsors-header p{
         text-align: left;
@@ -159,6 +161,9 @@
     }
     .sponsor-tab .tab-text{
         max-width: 600px;
+    }
+    .tab-text p{
+      margin-top: 12px;
     }
     .tab-text h3{
         font-size: 26px;

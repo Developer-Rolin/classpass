@@ -1,3 +1,6 @@
+body{
+    background-color: #FFFFFF;
+}
 .hero {
     background-color: var(--color-light-blue);
     height: 100%;

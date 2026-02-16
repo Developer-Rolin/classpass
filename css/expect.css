@@ -10,10 +10,10 @@
 .expect-container {
     display: flex;
     flex-direction: column;
-    max-width: 1240px;
-    margin: 0 auto;
+    /* max-width: 1240px; */
+    /* margin: 0 auto; */
     max-height: 668px;
-    padding: 100px;
+    padding: 100px 0;
 }
 
 .expect-header {
@@ -30,7 +30,7 @@
 }
 
 .expect-header p {
-    /* color: #666; */
+    color: #000000;
     font-family: TT Norms;
     font-weight: 400;
     font-size: 16px;

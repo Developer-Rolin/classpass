@@ -36,10 +36,10 @@
 .schedule-card {
     background-color: #ffffff;
     padding: 48px;
-    border-radius: 24px;
+    border-radius: 16px;
     width: 100%;
     max-width: 604px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
 }
 
 .schedule-card h2 {
@@ -50,6 +50,7 @@
     text-align: center;
     margin-bottom: 12px;
     color: #000;
+    max-width: 464px;
 }
 
 .schedule-list {
@@ -61,7 +62,7 @@
 .schedule-item {
     display: grid;
     grid-template-columns: 100px 1fr;
-    align-items: baseline;
+    /* align-items: baseline; */
     font-size: 1rem;
 }
 
@@ -84,7 +85,7 @@
 
 @media (max-width: 767px) {
     .schedule {
-        padding: 296px 20px 48px;
+        padding: 272px 20px 48px;
         width: 100%;
         max-height: none;
     }

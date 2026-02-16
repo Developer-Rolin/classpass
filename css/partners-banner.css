@@ -32,8 +32,8 @@
 }
 
 .logo-group img {
-    height: 35px;
-    width: auto;  
+    /* height: 35px; */
+    /* width: auto; */
 }
 
 @keyframes scroll-animation {
