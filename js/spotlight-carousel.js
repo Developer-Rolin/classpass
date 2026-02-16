@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     carouselButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             if (btn.classList.contains('disabled')) return;
+
             const side = btn.id === 'spotlightPrevBtn' ? 'left' : 'right';
             fullNav(side, btn);
             currentIndex = side === 'right' ? 1 : 0;
@@ -71,57 +72,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================
-    // SWIPE SOMENTE MOBILE
+    // SWIPE SOMENTE MOBILE (VERSÃO ESTÁVEL)
     // ==========================
-    let isDragging = false;
     let startX = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-
-    const getPositionX = (e) => e.touches[0].clientX;
-
-    const getTranslateX = () => {
-        const style = window.getComputedStyle(spotlightTrack);
-        const matrix = new DOMMatrixReadOnly(style.transform);
-        return matrix.m41;
-    };
-
-    const setTranslate = (value) => {
-        spotlightTrack.style.transform = `translateX(${value}px)`;
-    };
+    let isSwiping = false;
 
     spotlightTrack.addEventListener('touchstart', (e) => {
         if (window.innerWidth >= 540) return;
 
-        isDragging = true;
-        startX = getPositionX(e);
-        prevTranslate = getTranslateX();
-        spotlightTrack.style.transition = 'none';
+        startX = e.touches[0].clientX;
+        isSwiping = true;
     }, { passive: true });
 
-    spotlightTrack.addEventListener('touchmove', (e) => {
-        if (!isDragging || window.innerWidth >= 540) return;
-
-        const currentPosition = getPositionX(e);
-        currentTranslate = prevTranslate + currentPosition - startX;
-        setTranslate(currentTranslate);
-    }, { passive: true });
-
-    spotlightTrack.addEventListener('touchend', () => {
-        if (!isDragging) return;
+    spotlightTrack.addEventListener('touchend', (e) => {
+        if (!isSwiping) return;
         if (window.innerWidth >= 540) return;
 
-        isDragging = false;
+        isSwiping = false;
 
-        const movedBy = currentTranslate - prevTranslate;
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
 
-        spotlightTrack.style.transition = 'transform 0.3s ease';
-
-        if (movedBy < -50 && currentIndex < paginationButtons.length - 1) {
+        if (diff < -50 && currentIndex < paginationButtons.length - 1) {
             currentIndex++;
         }
 
-        if (movedBy > 50 && currentIndex > 0) {
+        if (diff > 50 && currentIndex > 0) {
             currentIndex--;
         }
 
