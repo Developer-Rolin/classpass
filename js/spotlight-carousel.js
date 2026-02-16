@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!spotlightTrack) return;
 
+    const cards = spotlightTrack.querySelectorAll('.press-card');
     let currentIndex = 0;
 
     // ==========================
@@ -40,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function goToIndex(index) {
-        const cardSize = spotlightTrack.clientWidth;
-        const distance = index === 0 ? 0 : -1 * cardSize * index + index * 20;
+        const targetCard = cards[index];
+        const distance = -targetCard.offsetLeft;
 
         spotlightTrack.style.transition = 'transform 0.3s ease';
         spotlightTrack.style.transform = `translateX(${distance}px)`;
@@ -71,40 +72,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================
-    // SWIPE FLUIDO MOBILE
+    // SWIPE MOBILE FLUIDO (OFFSET REAL)
     // ==========================
     let startX = 0;
     let isSwiping = false;
-    let moveX = 0;
-
-    const getCardWidth = () => spotlightTrack.querySelector('.press-card').offsetWidth + 20; // 20 = gap
+    let currentOffset = 0;
 
     spotlightTrack.addEventListener('touchstart', (e) => {
         if (window.innerWidth >= 540) return;
 
         startX = e.touches[0].clientX;
         isSwiping = true;
-        moveX = 0;
+        currentOffset = -cards[currentIndex].offsetLeft;
         spotlightTrack.style.transition = 'none';
     }, { passive: true });
 
     spotlightTrack.addEventListener('touchmove', (e) => {
         if (!isSwiping || window.innerWidth >= 540) return;
 
-        const currentX = e.touches[0].clientX;
-        moveX = currentX - startX;
-
-        const offset = -currentIndex * getCardWidth() + moveX;
-        spotlightTrack.style.transform = `translateX(${offset}px)`;
+        const moveX = e.touches[0].clientX - startX;
+        spotlightTrack.style.transform = `translateX(${currentOffset + moveX}px)`;
     }, { passive: true });
 
-    spotlightTrack.addEventListener('touchend', () => {
+    spotlightTrack.addEventListener('touchend', (e) => {
         if (!isSwiping || window.innerWidth >= 540) return;
 
         isSwiping = false;
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
 
-        if (moveX < -50 && currentIndex < paginationButtons.length - 1) currentIndex++;
-        if (moveX > 50 && currentIndex > 0) currentIndex--;
+        if (diff < -50 && currentIndex < cards.length - 1) currentIndex++;
+        if (diff > 50 && currentIndex > 0) currentIndex--;
 
         goToIndex(currentIndex);
     });
