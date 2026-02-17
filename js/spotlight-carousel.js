@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isMoving = true;
     }, { passive: true });
 
-    track.addEventListener('touchend', e => {
+  track.addEventListener('touchend', e => {
         if (!isMoving) return;
 
         const touchEndX = e.changedTouches[0].screenX;
@@ -125,8 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const diffY = touchStartY - touchEndY;
 
         if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-            // Evita que o link abra ao deslizar
-            if (e.target.tagName === 'A') e.preventDefault();
+            // Se o usuário deslizou, impedimos que o clique "fantasma" abra o link
+            if (e.cancelable) e.preventDefault(); 
 
             if (diffX > 0) {
                 goToSlide(currentIndex + 1);
@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Limpeza para o próximo toque
         touchStartX = 0;
         touchStartY = 0;
         isMoving = false;
