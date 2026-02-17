@@ -1,61 +1,60 @@
 #footer {
-    background: #000;}
+  background: #000;
+}
 
 #footer .container {
-    padding: 100px 0px;
+  padding: 100px 0px;
 }
 
 .footer-title {
-    font-family: Circuit;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 40px;
-    text-align: center;
-    color: #FFFFFF;
+  font-family: "Circuit";
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 40px;
+  text-align: center;
+  color: #ffffff;
 }
 
 .footer-description {
-    font-family: 'TT Norms';
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #fff;
-    text-align: center;
-    max-width: 600px;
-    margin: 12px auto 0;
+  font-family: "TT Norms";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+  max-width: 600px;
+  margin: 12px auto 0;
 }
 
 #footer .cta-button {
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    height: 48px;
-    padding: 12px 24px;
-    margin: 24px auto 0;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 48px;
+  padding: 12px 24px;
+  margin: 24px auto 0;
 }
 
-@media (max-width:768px) {
-    #footer .container {
-        padding: 48px 20px;
-    }
+@media (max-width: 768px) {
+  #footer .container {
+    padding: 48px 20px;
+  }
 
-    .footer-title,
-    .footer-description {
-        text-align: left;
-    }
+  .footer-title,
+  .footer-description {
+    text-align: left;
+  }
 
-    .footer-title {
-        font-size: 28px;
-        line-height: 32px;
-    }
+  .footer-title {
+    font-size: 28px;
+    line-height: 32px;
+  }
 
-    .footer-description {
-        margin: 12px 0 0;
-    }
+  .footer-description {
+    margin: 12px 0 0;
+  }
 
-    #footer .cta-button {
-        margin: 24px 0 0;
-    }
-
-
+  #footer .cta-button {
+    margin: 24px 0 0;
+  }
 }

@@ -67,10 +67,10 @@ textarea {
 ========================= */
 
 :root {
-  --color-primary: #0055FF;
+  --color-primary: #0055ff;
   --color-primary-dark: #0044cc;
-  --color-light-blue: #E6F3FF;
-  --color-text-gray: #666666;
+  --color-light-blue: #e6f3ff;
+  --color-text-gray: #000;
   --font-base: "TT Norms", Arial, sans-serif;
 }
 
@@ -88,6 +88,10 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+a:focus-visible {
+  border-color: #0077ff;
+  outline: 2px solid #0077ff;
 }
 
 /* =========================
