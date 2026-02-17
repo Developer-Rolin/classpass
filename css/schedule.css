@@ -7,7 +7,7 @@
 .schedule:before {
   content: "";
   position: absolute;
-  background-image: url(../assets/images/Schedule_Background_Image.jpg);
+  background-image: url(../assets/images/schedule_background.png);
   background-size: cover;
   background-position: center;
   top: 0;

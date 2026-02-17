@@ -185,6 +185,25 @@ h2.spotlight-title {
     -webkit-user-select: none;
     user-select: none;
   }
+
+  .spotlight .container {
+    padding-top: 48px;
+  }
+
+  h2.spotlight-title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .spotlight-description {
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 100%;
+  }
+  h2.spotlight-title,
+  .spotlight-description {
+    padding-inline: 20px;
+    text-align: left;
+  }
 }
 
 .spotlight-track {
