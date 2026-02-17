@@ -50,7 +50,7 @@
     animation-play-state: paused;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .partners-banner {
         min-height: 124px;
 

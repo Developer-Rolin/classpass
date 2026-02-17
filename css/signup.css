@@ -367,6 +367,53 @@ header .container .nav-container ul a {
     color: #000000;
 }
 
+
+/* 1. Estilo para Inputs Normais */
+.signup-form.was-validated .input:valid {
+    border-color: #28a745 !important;
+}
+
+.signup-form.was-validated .input:invalid {
+    border-color: #dc3545 !important;
+}
+
+/* Ajuste da cor da label quando o campo for válido/inválido */
+.signup-form.was-validated .float-label:has(.input:valid) label {
+    color: #28a745;
+}
+
+.signup-form.was-validated .float-label:has(.input:invalid) label {
+    color: #dc3545;
+}
+
+/* 2. Estilo para o Custom Select (que não é nativo) */
+/* Sucesso: quando tem valor selecionado */
+#experienceSelectContainer.has-value .custom-select {
+    border-color: #28a745;
+}
+
+#experienceSelectContainer.has-value .select-label {
+    color: #28a745;
+}
+
+/* Erro: quando tentou enviar e não tem valor */
+#experienceSelectContainer.invalid .custom-select {
+    border-color: #dc3545
+}
+
+#experienceSelectContainer.invalid .select-label {
+    color: #dc3545
+}
+
+/* 3. Estilo para o Checkbox */
+/* .signup-form.was-validated .checkbox-group input:valid + .checkbox-text {
+    color: #28a745;
+} */
+
+.signup-form.was-validated .checkbox-group input:invalid + .checkbox-text {
+    color: #dc3545;
+}
+
 /* =========================
    LEGAL TEXT
 ========================= */
@@ -429,6 +476,7 @@ header .container .nav-container ul a {
 /* =========================
    IMAGE SECTION
 ========================= */
+
 .signup-container .image-section img {
     width: 100%;
     max-width: 456px;
@@ -470,7 +518,7 @@ header .container .nav-container ul a {
    RESPONSIVE - MOBILE
 ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .signup-main {
         padding: 48px 20px;
     }
@@ -507,6 +555,14 @@ header .container .nav-container ul a {
     .form-row  .form-group{
         margin:0px;
     }
+    .image-section{
+        width: 100%;
+        max-width: 456px;
+    }
+     .image-section img{
+        width: 100%;
+        height: auto;
+    }
 
     .logo .mobile-logo {
         display: block;
@@ -533,50 +589,4 @@ header .container .nav-container ul a {
     padding: 0px;
 }
 
-}
-
-/* 1. Estilo para Inputs Normais */
-.signup-form.was-validated .input:valid {
-    border-color: #28a745 !important;
-}
-
-.signup-form.was-validated .input:invalid {
-    border-color: #dc3545 !important;
-}
-
-/* Ajuste da cor da label quando o campo for válido/inválido */
-.signup-form.was-validated .float-label:has(.input:valid) label {
-    color: #28a745;
-}
-
-.signup-form.was-validated .float-label:has(.input:invalid) label {
-    color: #dc3545;
-}
-
-/* 2. Estilo para o Custom Select (que não é nativo) */
-/* Sucesso: quando tem valor selecionado */
-#experienceSelectContainer.has-value .custom-select {
-    border-color: #28a745;
-}
-
-#experienceSelectContainer.has-value .select-label {
-    color: #28a745;
-}
-
-/* Erro: quando tentou enviar e não tem valor */
-#experienceSelectContainer.invalid .custom-select {
-    border-color: #dc3545
-}
-
-#experienceSelectContainer.invalid .select-label {
-    color: #dc3545
-}
-
-/* 3. Estilo para o Checkbox */
-/* .signup-form.was-validated .checkbox-group input:valid + .checkbox-text {
-    color: #28a745;
-} */
-
-.signup-form.was-validated .checkbox-group input:invalid + .checkbox-text {
-    color: #dc3545;
 }

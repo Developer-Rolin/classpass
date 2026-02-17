@@ -27,7 +27,7 @@ header .container .nav-container ul a {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     header .container .nav-container,
     header .container .nav-container ul a {
         display: flex;

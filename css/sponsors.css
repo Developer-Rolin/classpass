@@ -131,7 +131,7 @@
   letter-spacing: 0px;
   margin-top: 16px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .sponsors{
         padding: 48px 0;
     }
@@ -143,16 +143,20 @@
         text-align: left;
         font-size: 28px;
         line-height: 32px;
+        margin: 0 auto;
         margin-bottom: 12px;
+        max-width: 706px;
     }
     .sponsors-header p{
         text-align: left;
+        max-width: 706px;
+        margin: 0 auto;
     }
     .sponsor-selector{
         margin-top: 32px;
         flex-direction: column;
         gap: 5px;
-        max-width: 353px;
+        max-width: 706px;
     }
     .sponsor-tab{
         flex-direction: column-reverse;
@@ -160,7 +164,7 @@
         gap: 32px;
     }
     .sponsor-tab .tab-text{
-        max-width: 600px;
+        max-width: 706px;
     }
     .tab-text p{
       margin-top: 12px;
