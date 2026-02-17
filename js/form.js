@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedText = customSelect.querySelector('.selected-text');
     const form = document.getElementById('signupForm');
     const experienceInput = document.getElementById('experience');
-    const checkbox = document.getElementById("marketing");
+   
   
 
     // Abre/Fecha o dropdown

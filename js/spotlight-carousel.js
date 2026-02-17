@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = 0; i < numPages; i++) {
             const btn = document.createElement('button');
-            if (i === 0) btn.classList.add('current');
+            if (i === currentIndex) btn.classList.add('current');
             btn.addEventListener('click', () => goToSlide(i));
             pagination.appendChild(btn);
         }
@@ -28,11 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         currentIndex = index;
 
-        const cardWidth = cards[0].getBoundingClientRect().width;
-        const gap = parseInt(window.getComputedStyle(track).gap) || 32;
+        // No iOS, é melhor recalcular a largura para garantir precisão
+        const cardWidth = cards[0].offsetWidth; 
+        const style = window.getComputedStyle(track);
+        const gap = parseInt(style.columnGap || style.gap) || 32;
+        
         const moveAmount = (cardWidth + gap) * currentIndex;
 
-        track.style.transform = `translateX(-${moveAmount}px)`;
+        // translate3d força o uso da GPU no iPhone, deixando muito mais fluido
+        track.style.transform = `translate3d(-${moveAmount}px, 0, 0)`;
         updateUI();
     }
 
@@ -47,44 +51,52 @@ document.addEventListener('DOMContentLoaded', () => {
         if(nextBtn) nextBtn.classList.toggle('disabled', currentIndex === numPages - 1);
     }
 
-    // --- LÓGICA DE SWIPE CORRIGIDA PARA IOS ---
-    let touchStartX = 0;
-    let touchEndX = 0;
+    // --- LÓGICA DE SWIPE ROBUSTA PARA IOS ---
+    let startX = 0;
+    let isDragging = false;
 
-    // Adicionamos { passive: true } para melhorar a performance de scroll no iOS
-    track.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
+    track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
     }, { passive: true });
 
-    track.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-        // Resetamos as variáveis para garantir que o próximo toque seja limpo
-        touchStartX = 0;
-        touchEndX = 0;
+    track.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        
+        const currentX = e.touches[0].clientX;
+        const diffX = startX - currentX;
+
+        // Se o movimento horizontal for maior que o vertical, bloqueamos o scroll da página
+        if (Math.abs(diffX) > 10) {
+            // No iOS, se você quiser impedir o 'bounce' lateral, 
+            // precisaria de e.preventDefault(), mas isso requer {passive: false}
+        }
     }, { passive: true });
 
-    function handleSwipe() {
-        const swipeThreshold = 50; // Sensibilidade do swipe
-        const diff = touchStartX - touchEndX;
+    track.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+        const threshold = 50; // pixels necessários para mover
 
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                goToSlide(currentIndex + 1); // Swipe para a esquerda (próximo)
+        if (Math.abs(diffX) > threshold) {
+            if (diffX > 0) {
+                goToSlide(currentIndex + 1);
             } else {
-                goToSlide(currentIndex - 1); // Swipe para a direita (anterior)
+                goToSlide(currentIndex - 1);
             }
         }
-    }
+        isDragging = false;
+    });
 
     nextBtn?.addEventListener('click', () => goToSlide(currentIndex + 1));
     prevBtn?.addEventListener('click', () => goToSlide(currentIndex - 1));
 
     window.addEventListener('resize', () => {
         setupPagination();
-        goToSlide(0);
+        goToSlide(currentIndex); // Mantém o slide atual ao redimensionar
     });
 
     setupPagination();
-    updateUI();
+    goToSlide(0);
 });

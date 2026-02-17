@@ -22,6 +22,7 @@ input,
 textarea {
   font: inherit;
 }
+
 /* =========================
    FONTS
 ========================= */
@@ -53,6 +54,7 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Circuit";
   src: url("../assets/fonts/Circuit.otf") format("opentype");
@@ -99,5 +101,15 @@ html {
 .container {
   width: 100%;
   max-width: 1240px;
- margin: 0 auto;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero-container {
+    padding-left: 20px;
+  }
 }
