@@ -62,7 +62,7 @@ form.addEventListener("submit", function(e) {
 
     // Verifica se o formulário nativo está OK
     if (!form.checkValidity() || !isExperienceValid) {
-        console.log("Erro na validação.");
+        console.log("Validation failed");
         return;
     }
 

@@ -370,7 +370,7 @@ header .container .nav-container ul a {
 
 /* 1. Estilo para Inputs Normais */
 .signup-form.was-validated .input:valid {
-    border-color: #28a745 !important;
+    border-color: #008AFF !important;
 }
 
 .signup-form.was-validated .input:invalid {
@@ -379,7 +379,7 @@ header .container .nav-container ul a {
 
 /* Ajuste da cor da label quando o campo for válido/inválido */
 .signup-form.was-validated .float-label:has(.input:valid) label {
-    color: #28a745;
+    color: #008AFF;
 }
 
 .signup-form.was-validated .float-label:has(.input:invalid) label {
@@ -389,11 +389,11 @@ header .container .nav-container ul a {
 /* 2. Estilo para o Custom Select (que não é nativo) */
 /* Sucesso: quando tem valor selecionado */
 #experienceSelectContainer.has-value .custom-select {
-    border-color: #28a745;
+    border-color: #008AFF;
 }
 
 #experienceSelectContainer.has-value .select-label {
-    color: #28a745;
+    color: #008AFF;
 }
 
 /* Erro: quando tentou enviar e não tem valor */
@@ -407,12 +407,17 @@ header .container .nav-container ul a {
 
 /* 3. Estilo para o Checkbox */
 /* .signup-form.was-validated .checkbox-group input:valid + .checkbox-text {
-    color: #28a745;
+    color: #008AFF;
 } */
 
 .signup-form.was-validated .checkbox-group input:invalid + .checkbox-text {
     color: #dc3545;
 }
+
+#experienceSelectContainer .custom-select:focus-visible,.input:focus-visible ,.checkbox-label input[type="checkbox"]:focus-visible,.legal-text a:focus-visible {
+    outline: 2px solid #008AFF;
+    /* outline-offset: 2px; */
+}   
 
 /* =========================
    LEGAL TEXT
