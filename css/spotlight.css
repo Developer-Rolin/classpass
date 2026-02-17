@@ -185,8 +185,7 @@ h2.spotlight-title {
         display: none !important;
     }
     
-    .spotlight-track {
-        margin-left: 20px; /* Reduz a margem lateral no mobile */
+    .spotlight-track {       
         gap: 16px; /* Gap menor para telas pequenas */
         margin-left: 0 !important; /* Removemos a margem fixa */
         justify-content: flex-start; /* O JS cuidará do posicionamento */
@@ -199,3 +198,5 @@ h2.spotlight-title {
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
 }
+
+

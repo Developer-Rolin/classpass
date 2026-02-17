@@ -59,33 +59,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function goToSlide(index) {
-        const dots = paginationContainer.querySelectorAll('button');
-        if (index < 0) index = 0;
-        if (index >= dots.length) index = dots.length - 1;
+   function goToSlide(index) {
+    const dots = paginationContainer.querySelectorAll('button');
+    if (index < 0) index = 0;
+    if (index >= dots.length) index = dots.length - 1;
 
-        currentIndex = index;
+    currentIndex = index;
 
-        const cardWidth = cards[0].offsetWidth;
-        const gap = parseInt(window.getComputedStyle(track).gap) || 32;
-        const windowWidth = window.innerWidth;
+    const cardWidth = cards[0].offsetWidth;
+    const gap = parseInt(window.getComputedStyle(track).gap) || 32;
+    const windowWidth = window.innerWidth;
 
-        let moveAmount;
+    let moveAmount;
 
-        if (windowWidth <= 820) {
-            // LÓGICA DE CENTRALIZAÇÃO (Mobile/Tablet)
-            // Movemos o card e subtraímos metade do espaço vazio da tela para centralizar
-            const offset = (windowWidth - cardWidth) / 2;
-            moveAmount = (index * (cardWidth + gap)) - offset;
+    if (windowWidth <= 820) {
+        // --- AJUSTE AQUI ---
+        // Calculamos o offset para centralizar
+        const centerOffset = (windowWidth - cardWidth) / 2;
+        
+        // Se for o PRIMEIRO card (index 0), não queremos que ele fique 
+        // totalmente no centro se isso deixar um buraco enorme na esquerda.
+        // Queremos que ele respeite um padding mínimo (ex: 20px).
+        if (index === 0) {
+            moveAmount = -20; // Isso faz o seu translateX(20px) positivo de forma inversa
         } else {
-            // LÓGICA DESKTOP (Alinhado à esquerda do track)
-            // Note que o Desktop mantém o margin-left de 100px via CSS, então movemos apenas o necessário
-            moveAmount = index * (cardWidth + gap);
+            moveAmount = (index * (cardWidth + gap)) - centerOffset;
         }
-
-        track.style.transform = `translateX(${-moveAmount}px)`;
-        updateUI(dots.length);
+    } else {
+        // Desktop (acima de 820px)
+        moveAmount = index * (cardWidth + gap);
     }
+
+    // Aplicamos o valor negativo para o transform
+    track.style.transform = `translateX(${-moveAmount}px)`;
+    updateUI(dots.length);
+}
 
     function updateUI(totalDots) {
         const dots = paginationContainer.querySelectorAll('button');
