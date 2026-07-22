@@ -54,6 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const data = Object.fromEntries(new FormData(form));
     console.log("Sent Data:", data);
-    location.pathname = "/thank-you.html";
+    location.pathname = "https://developer-rolin.github.io/thank-you.html";
   });
 });
